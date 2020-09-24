@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 22 sep. 2020 à 09:20
+-- Généré le : jeu. 24 sep. 2020 à 14:42
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -61,22 +61,24 @@ CREATE TABLE IF NOT EXISTS `cheval` (
   `id_typeCheval` int(11) DEFAULT NULL,
   `id_mere` int(11) DEFAULT NULL,
   `id_pere` int(11) DEFAULT NULL,
+  `idEntraineur` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_CHETYP` (`id_typeCheval`),
   KEY `FK_CHECLI` (`id_client`),
   KEY `FK_CHECHE` (`id_mere`),
-  KEY `FK_CHECHE2` (`id_pere`)
+  KEY `FK_CHECHE2` (`id_pere`),
+  KEY `idEntraineur` (`idEntraineur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `cheval`
 --
 
-INSERT INTO `cheval` (`id`, `nom`, `sexe`, `prixDepart`, `SIRE`, `id_client`, `id_typeCheval`, `id_mere`, `id_pere`) VALUES
-(1, 'Tonnerre', 'M', 100, 'ODL0010', 23, 2, NULL, NULL),
-(2, 'Fleurette', 'F', 100, 'LOP91093', 22, 1, NULL, NULL),
-(3, 'Pablo', 'M', 100, 'OLD01LD', 22, 2, 2, 1),
-(4, 'TomChauvin', 'M', 100, 'OLODP9001', 22, 2, 2, 1);
+INSERT INTO `cheval` (`id`, `nom`, `sexe`, `prixDepart`, `SIRE`, `id_client`, `id_typeCheval`, `id_mere`, `id_pere`, `idEntraineur`) VALUES
+(1, 'Tonnerre', 'M', 100, 'ODL0010', 23, 2, NULL, NULL, 1),
+(2, 'Fleurette', 'F', 100, 'LOP91093', 22, 1, NULL, NULL, 2),
+(3, 'Pablo', 'M', 100, 'OLD01LD', 22, 2, 2, 1, 2),
+(4, 'TomChauvin', 'M', 100, 'OLODP9001', 22, 2, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -199,6 +201,28 @@ CREATE TABLE IF NOT EXISTS `contenir` (
   KEY `id_pj` (`id_pj`),
   KEY `id_mail` (`id_mail`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `entraineur`
+--
+
+DROP TABLE IF EXISTS `entraineur`;
+CREATE TABLE IF NOT EXISTS `entraineur` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(25) NOT NULL,
+  `prenom` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `entraineur`
+--
+
+INSERT INTO `entraineur` (`id`, `nom`, `prenom`) VALUES
+(1, 'Adala', 'Yanis '),
+(2, 'Mortbriant', 'Micky');
 
 -- --------------------------------------------------------
 
@@ -383,7 +407,8 @@ ALTER TABLE `cheval`
   ADD CONSTRAINT `FK_CHECHE` FOREIGN KEY (`id_mere`) REFERENCES `cheval` (`id`),
   ADD CONSTRAINT `FK_CHECHE2` FOREIGN KEY (`id_pere`) REFERENCES `cheval` (`id`),
   ADD CONSTRAINT `FK_CHECLI` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`),
-  ADD CONSTRAINT `FK_CHETYP` FOREIGN KEY (`id_typeCheval`) REFERENCES `typecheval` (`id`);
+  ADD CONSTRAINT `FK_CHETYP` FOREIGN KEY (`id_typeCheval`) REFERENCES `typecheval` (`id`),
+  ADD CONSTRAINT `cheval_ibfk_1` FOREIGN KEY (`idEntraineur`) REFERENCES `entraineur` (`id`);
 
 --
 -- Contraintes pour la table `client`
