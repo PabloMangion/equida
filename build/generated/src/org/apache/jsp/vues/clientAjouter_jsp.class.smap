@@ -1,0 +1,19 @@
+SMAP
+clientAjouter_jsp.java
+JSP
+*S JSP
+*F
++ 0 clientAjouter.jsp
+vues/clientAjouter.jsp
+*L
+5,17:48
+23,2:67
+24,28:69
+52:97,2
+53,5:99
+58,6:105
+63,7:111
+70,7:119
+76,6:126
+93,9:132
+*E

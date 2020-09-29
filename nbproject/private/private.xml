@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/web/vues/ventes/listerInfosCheval.jsp</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/src/java/modele/Entraineur.java</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/web/vues/ventes/listerLesVentes.jsp</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/web/vues/ventes/listerLesChevaux.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/web/vues/clientAjouter.jsp</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/src/java/servlets/ServletClient.java</file>
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/src/java/database/VenteDAO.java</file>
-            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/src/java/modele/Cheval.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/web/vues/clientConsulter.jsp</file>
             <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/src/java/servlets/ServletVentes.java</file>
+            <file>file:/C:/Users/sio2/Documents/NetBeansProjects/equida20/src/java/database/ClientDAO.java</file>
         </group>
     </open-files>
 </project-private>

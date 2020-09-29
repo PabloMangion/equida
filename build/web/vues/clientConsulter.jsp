@@ -27,6 +27,7 @@
             <tr><td>CODE POSTAL  :</td><td><%  out.println(unClient.getCopos());%></td>  </tr>
             <tr><td>VILLE  :</td><td><%  out.println(unClient.getVille());%></td>  </tr>
             <tr><td>MAIL  :</td><td><%  out.println(unClient.getMail());%></td>  </tr>
+            <tr><td>PAYS  :</td><td><%  out.println(unClient.getUnPays().getCode());%></td>  </tr>
             <tr><td>Catégories selectionnées</td><td>
           <% for (int i=0; i<unClient.getLesCategVentes().size(); i++){
                out.println(unClient.getLesCategVentes().get(i).getCode() + "</br>");

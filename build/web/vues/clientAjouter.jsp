@@ -51,9 +51,7 @@
                 
                 <%-- Champ Liste des pays --%>
                 <label for="pays">Pays : </label>
-                <input list="listePays" name="pays" id="choix_pays">
-               
-                <datalist id="codePays">
+                <select id="codePays" name="pays">
                     <%
                         ArrayList<Pays> lesPays = (ArrayList)request.getAttribute("pLesPays");
                         for (int i=0; i<lesPays.size();i++){
@@ -61,11 +59,11 @@
                             out.println("<option value='" + p.getCode()+"'>" + p.getNom()+"</option>" );
                         }
                     %>
-                </datalist>
+                </select>
                 </br>            
                 
                 <label for="categVente">Categorie Vente : </label>
-                <select name="categVente" size="5" multiple>
+                <select name="categVente" >
                 <%
                         ArrayList<CategVente> lesCategVente = (ArrayList)request.getAttribute("pLesCategVente");
                         for (int i=0; i<lesCategVente.size();i++){
