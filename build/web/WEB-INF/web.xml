@@ -28,6 +28,10 @@
         <servlet-name>ServletClient</servlet-name>
         <servlet-class>servlets.ServletClient</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCategVente</servlet-name>
+        <servlet-class>servlets.ServletCategVente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletVentes</servlet-name>
         <url-pattern>/ServletVentes</url-pattern>
@@ -58,7 +62,10 @@
         <servlet-name>ServletVentes</servlet-name>
         <url-pattern>/ServletVentes/listerInfosCheval</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>ServletCategVente</servlet-name>
+        <url-pattern>/ServletCategVente/categAjouter</url-pattern>
+    </servlet-mapping>
     
     <session-config>
         <session-timeout>

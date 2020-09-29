@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
+ /* To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package database;
 
+import static database.ClientDAO.requete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modele.CategVente;
+import modele.Client;
 /**
  *
  * @author Zakina
@@ -24,7 +25,7 @@ public class CategVenteDAO {
      public static ArrayList<CategVente>  getLesCategVentes(Connection connection){      
         ArrayList<CategVente> lesCategVentes = new  ArrayList<CategVente>();
         try
-        {
+        { 
             //preparation de la requete     
             requete=connection.prepareStatement("select * from categvente");
             
@@ -47,4 +48,34 @@ public class CategVenteDAO {
         return lesCategVentes ;    
     } 
     
+     public static CategVente categAjouter(Connection connection, CategVente uneCategVente){      
+       // int idGenere = -1;
+        try
+        {
+            //preparation de la requete
+            // id (clé primaire de la table client) est en auto_increment,donc on ne renseigne pas cette valeur
+            // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
+            // supprimer ce paramètre en cas de requête sans auto_increment.
+            requete=connection.prepareStatement("INSERT INTO categvente (code, libelle)\n" + "VALUES (?,?)");
+            requete.setString(1, uneCategVente.getCode());
+            requete.setString(2, uneCategVente.getLibelle());
+
+           /* Exécution de la requête */
+            requete.executeUpdate();
+            
+             // Récupération de id auto-généré par la bdd dans la table client
+            //rs = requete.getGeneratedKeys();
+           
+            
+           
+            
+        }   
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            //out.println("Erreur lors de l’établissement de la connexion");
+        }
+        return uneCategVente;    
+    }
+     
 }
